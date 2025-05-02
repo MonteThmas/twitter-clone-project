@@ -33,7 +33,8 @@ app.use("/register", registerRoute);
 app.get("/",middleware.requireLogIn, (req, res, next)=> {
 
     let payload = {
-        pageTitle:"Home"
+        pageTitle:"Home",
+        userLoggedIn: req.session.user // gives information of user logged
     }
     res.status(200).render("home", payload);// 200 means "ok"
 })
