@@ -6,12 +6,19 @@ const path = require('path')
 const server = app.listen(port, ()=> console.log("Server listening on port " + port));
 const bodyParser = require("body-parser")
 const mongoose = require("./database");
+const session = require("express-session");
 
 app.set("view engine", "pug");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(express.static(path.join(__dirname, "public")))
+
+app.use(session({
+    secret: "fried chicken", // hashes session using this secret
+    resave: true, //focres session to be saved , even when session wasn't modified during server request
+    saveUninitialized: false //prevents from saving the session as uninitialized
+}))
 
 //routes
 const loginRoute = require('./routes/loginRoutes');
