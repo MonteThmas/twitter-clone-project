@@ -1,0 +1,48 @@
+body {
+    background-color: black;
+    color: white;
+}
+
+.wrapper{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.loginContainer {
+    padding: 30px;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid rgb(51, 54, 57);
+    text-align: center;
+    box-shadow: -11px 8px 11px rgba(255,255,255,0.3);
+    border-radius: 20px;
+}
+h1 {
+    margin-bottom: 40px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+}
+input[type="text"],
+input[type="password"],
+input[type="email"]{
+    margin-bottom:20px;
+    padding: 10px;
+    background-color: black;
+    color: rgb(192, 192, 192);
+    border: 1px solid ;
+    border-radius: 9999px;
+}
+
+input[type="submit"] {
+    background-color: rgb(192, 192, 192);
+    border-radius: 9999px;
+    min-height: 36px;
+    min-width: 36x;
+    border: none;
+    margin-bottom: 7px;
+    
+    
+}
