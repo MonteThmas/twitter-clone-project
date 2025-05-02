@@ -2,7 +2,9 @@ const express = require('express'); // declared express dependency
 const app = express(); // created instance of express in "app" variable
 const router = express.Router(); // created the router
 const bodyParser = require("body-parser");
-const User = require('../schemas/UserSchema')
+const bcrypt = require("bcrypt");
+const User = require('../schemas/UserSchema');
+
 
 
 
@@ -43,6 +45,8 @@ router.post("/", async (req, res, next)=> {
             //no user found
 
             var data = req.body;
+
+            data.password = await bcrypt.hash(password, 10);
             
             User.create(data)
             .then((user) => {
