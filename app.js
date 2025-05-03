@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, "public")))
 
 app.use(session({
     secret: "fried chicken", // hashes session using this secret
-    resave: true, //focres session to be saved , even when session wasn't modified during server request
+    resave: true , //forces session to be saved , even when session wasn't modified during server request
     saveUninitialized: false //prevents from saving the session as uninitialized
 }))
 
