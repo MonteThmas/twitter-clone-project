@@ -1,0 +1,8 @@
+mixin createPostForm(userLoggedIn)
+    .postFormContainer
+        .userImageContainer 
+            img(src=userLoggedIn.ProfilePic , alt="Users profile image")
+        .textAreaContainer 
+            textarea#postTextArea(placeholder= "What's happening?")
+            .buttonContainer 
+                button#submitPostButton(disabled="") Post 
