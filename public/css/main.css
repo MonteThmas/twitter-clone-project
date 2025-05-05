@@ -1,3 +1,6 @@
+*{
+    background-color: black;
+}
 :root {
     --blue: #1fa2f1;
     --lightGrey: rgb(62,65,68);
@@ -26,7 +29,6 @@ nav {
     align-items: flex-end;
     height: 100%;
     background-color: black;
-
 }
 
 nav a{
@@ -37,16 +39,19 @@ nav a{
     height: 55px;
     align-items: center;
     justify-content: center;
+}
+
+nav a.white{
     color: white;
 }
 
-nav a.blue{
-    color: var(--blue);
+nav a.white:hover{
+    color: var(--lightGrey);
 }
 
 nav a:hover{
-    background-color: whitesmoke;
     border-radius: 50%;
+    background: none;
 }
 
 .mainSectionContainer{
