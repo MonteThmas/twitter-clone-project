@@ -14,3 +14,19 @@ $("#postTextArea").keyup((event) => {
     submitButton.prop("disabled", false)
 
 })
+
+$("#submitPostButton"). click(() => {
+    var button = $(event.target);
+    var textbox = $("#postTextArea")
+
+    //object we want to send to the server
+    var data = {
+        content: textbox.val()
+    }
+
+    //sending a post AJAX request "$.post()"
+    $.post("/api/posts", data, (postData, status, xhr) => {
+        alert(postData)
+    })
+
+})
