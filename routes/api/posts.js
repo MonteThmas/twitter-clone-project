@@ -13,6 +13,14 @@ router.get("/", (req, res, next)=> {
 })
 
 router.post("/", async (req, res, next)=> {
+
+    if(!req.body.content) {
+        console.log("content not sent with request")
+        res.sendStatus(400);
+        return;
+    }
+
+
     res.status(200).send("Success!")
 })
 
