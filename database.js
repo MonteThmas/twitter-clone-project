@@ -1,4 +1,4 @@
-//The require("mongoose")call above returns a Signleton object.
+//The require("mongoose")call above returns a Singleton object.
 // It means that the first time you call require("mongoose"), it
 //is creating an instance of the Mongoose class and returning it.
 //On subsequent call , it will return the same instance that was
