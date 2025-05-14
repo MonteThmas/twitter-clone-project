@@ -3,6 +3,7 @@ const app = express(); // created instance of express in "app" variable
 const router = express.Router(); // created the router
 const bodyParser = require("body-parser");
 const User = require('../../schemas/UserSchema');
+const Post = require('../../schemas/PostSchema'); 
 
 
 app.use(bodyParser.urlencoded({extended: false}))
@@ -20,8 +21,22 @@ router.post("/", async (req, res, next)=> {
         return;
     }
 
+    var postData = {
+        content: req.body.content,
+        postedBy: req.session.user
+    }
 
-    res.status(200).send("Success!")
+
+    Post.create(postData)
+    .then(async newPost => {
+        newPost = await User.populate(newPost, {path: "postedBy"})
+
+        res.status(201).send(newPost); //'201' means created
+    })
+    .catch((error) => {
+        console.log(error)
+        res.sendStatus(400);
+    })
 })
 
 module.exports = router;
