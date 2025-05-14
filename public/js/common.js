@@ -25,8 +25,16 @@ $("#submitPostButton"). click(() => {
     }
 
     //sending a post AJAX request "$.post()"
-    $.post("/api/posts", data, (postData, status, xhr) => {
-        console.log(postData)
+    $.post("/api/posts", data, postData => {
+
+        var html = createPostHtml(postData);
+        $(".postsContainer").prepend(html); //"prepend" adds post to the top or beginning
+        textbox.val(""); //removes users text from the textbox to clear it again
+        button.prop("disabled", true)
     })
 
 })
+
+function createPostHtml(postData) {
+    return postData.content;
+}
